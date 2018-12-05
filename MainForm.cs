@@ -28,15 +28,9 @@ namespace Piskvorky
                 MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?", "", MessageBoxButtons.YesNo);
                 if (vyhra == DialogResult.Yes)
                 {
-                    lab11.Text = "";
-                    lab12.Text = "";
-                    lab13.Text = "";
-                    lab21.Text = "";
-                    lab22.Text = "";
-                    lab23.Text = "";
-                    lab31.Text = "";
-                    lab32.Text = "";
-                    lab33.Text = "";
+                    lab11.Text = ""; lab12.Text = ""; lab13.Text = "";
+                    lab21.Text = ""; lab22.Text = ""; lab23.Text = "";
+                    lab31.Text = ""; lab32.Text = ""; lab33.Text = "";
                     labhrac.Text = "1";
                 }
                 if (vyhra == DialogResult.No)
@@ -116,9 +110,7 @@ namespace Piskvorky
 					default:
 						break;
 				}
-			}
-			else
-			{
+			}else{
 				if (labhrac.Text == "1") {
 						lab11.Text="O";
 						labhrac.Text="2";
@@ -147,22 +139,16 @@ namespace Piskvorky
 					default:
 						break;
 				}
-			}
-			else
-			{
+			}else{
 				if (labhrac.Text == "1") {
 						lab12.Text="O";
 						labhrac.Text="2";
-				
-				} 
-				else  {
+				}else{
 						lab12.Text="X";
 						labhrac.Text="1";
-				
 				}
 			}
             CheckWinner();
-
         }
 		
 		void Lab13Click(object sender, EventArgs e)
@@ -179,15 +165,12 @@ namespace Piskvorky
 					default:
 						break;
 				}
-			}
-			else
-			{
+			}else{
 				if (labhrac.Text == "1") {
 						lab13.Text="O";
 						labhrac.Text="2";
 				
-				} 
-				else  {
+				}else{
 						lab13.Text="X";
 						labhrac.Text="1";
 				
@@ -210,15 +193,12 @@ namespace Piskvorky
 					default:
 						break;
 				}
-			}
-			else
-			{
+			}else{
 				if (labhrac.Text == "1") {
 						lab21.Text="O";
 						labhrac.Text="2";
 				
-				} 
-				else {
+				}else{
 						lab21.Text="X";
 						labhrac.Text="1";
 				
@@ -241,15 +221,12 @@ namespace Piskvorky
 					default:
 						break;
 				}
-			}
-			else
-			{
+			}else{
 				if (labhrac.Text == "1") {
 						lab22.Text="O";
 						labhrac.Text="2";
 				
-				} 
-				else  {
+				}else{
 						lab22.Text="X";
 						labhrac.Text="1";
 				
@@ -272,15 +249,12 @@ namespace Piskvorky
 					default:
 						break;
 				}
-			}
-			else
-			{
+			}else{
 				if (labhrac.Text == "1") {
 						lab33.Text="O";
 						labhrac.Text="2";
 				
-				} 
-				else  {
+				}else{
 						lab33.Text="X";
 						labhrac.Text="1";
 				
@@ -303,15 +277,12 @@ namespace Piskvorky
 					default:
 						break;
 				}
-			}
-			else
-			{
+			}else{
 				if (labhrac.Text == "1") {
 						lab23.Text="O";
 						labhrac.Text="2";
 				
-				} 
-				else  {
+				}else{
 						lab23.Text="X";
 						labhrac.Text="1";
 				
@@ -334,15 +305,12 @@ namespace Piskvorky
 					default:
 						break;
 				}
-			}
-			else
-			{
+			}else{
 				if (labhrac.Text == "1") {
 						lab31.Text="O";
 						labhrac.Text="2";
 				
-				} 
-				else  {
+				}else{
 						lab31.Text="X";
 						labhrac.Text="1";
 				
@@ -365,15 +333,12 @@ namespace Piskvorky
 					default:
 						break;
 				}
-			}
-			else
-			{
+			}else{
 				if (labhrac.Text == "1") {
 						lab32.Text="O";
 						labhrac.Text="2";
 				
-				} 
-				else {
+				}else{
 						lab32.Text="X";
 						labhrac.Text="1";
 				
