@@ -1,36 +1,105 @@
-﻿/*
- * Created by SharpDevelop.
- * User: Martin - Notebook
- * Date: 1.12.2012
- * Time: 16:06
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Piskvorky
 {
-	/// <summary>
-	/// Description of MainForm.
-	/// </summary>
 	public partial class MainForm : Form
 	{
 		public MainForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
 		}
-		
-		
+
+        public string CheckWinner() {
+            string hrac = "";
+            if (((lab11.Text == "O") && (lab12.Text == "O") && (lab13.Text == "O")) ||
+                ((lab21.Text == "O") && (lab22.Text == "O") && (lab23.Text == "O")) ||
+                ((lab31.Text == "O") && (lab32.Text == "O") && (lab33.Text == "O")) ||
+                ((lab11.Text == "O") && (lab21.Text == "O") && (lab31.Text == "O")) ||
+                ((lab12.Text == "O") && (lab22.Text == "O") && (lab32.Text == "O")) ||
+                ((lab13.Text == "O") && (lab23.Text == "O") && (lab33.Text == "O")) ||
+                ((lab11.Text == "O") && (lab22.Text == "O") && (lab33.Text == "O")) ||
+                ((lab13.Text == "O") && (lab22.Text == "O") && (lab31.Text == "O")))
+            {
+                hrac = "1";
+                DialogResult vyhra =
+                MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?", "", MessageBoxButtons.YesNo);
+                if (vyhra == DialogResult.Yes)
+                {
+                    lab11.Text = "";
+                    lab12.Text = "";
+                    lab13.Text = "";
+                    lab21.Text = "";
+                    lab22.Text = "";
+                    lab23.Text = "";
+                    lab31.Text = "";
+                    lab32.Text = "";
+                    lab33.Text = "";
+                    labhrac.Text = "1";
+                }
+                if (vyhra == DialogResult.No)
+                {
+                    Application.Exit();
+                }
+            }
+            if (((lab11.Text == "X") && (lab12.Text == "X") && (lab13.Text == "X")) ||
+                ((lab21.Text == "X") && (lab22.Text == "X") && (lab23.Text == "X")) ||
+                ((lab31.Text == "X") && (lab32.Text == "X") && (lab33.Text == "X")) ||
+                ((lab11.Text == "X") && (lab21.Text == "X") && (lab31.Text == "X")) ||
+                ((lab12.Text == "X") && (lab22.Text == "X") && (lab32.Text == "X")) ||
+                ((lab13.Text == "X") && (lab23.Text == "X") && (lab33.Text == "X")) ||
+                ((lab11.Text == "X") && (lab22.Text == "X") && (lab33.Text == "X")) ||
+                ((lab13.Text == "X") && (lab22.Text == "X") && (lab31.Text == "X")))
+            {
+                hrac = "2";
+                DialogResult vyhra =
+                MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?", "", MessageBoxButtons.YesNo);
+                if (vyhra == DialogResult.Yes)
+                {
+                    lab11.Text = "";
+                    lab12.Text = "";
+                    lab13.Text = "";
+                    lab21.Text = "";
+                    lab22.Text = "";
+                    lab23.Text = "";
+                    lab31.Text = "";
+                    lab32.Text = "";
+                    lab33.Text = "";
+                    labhrac.Text = "1";
+                }
+                if (vyhra == DialogResult.No)
+                {
+                    Application.Exit();
+                }
+            }
+            if ((lab11.Text != "" && lab12.Text != "" && lab13.Text != "" &&
+                 lab21.Text != "" && lab22.Text != "" && lab23.Text != "" &&
+                 lab31.Text != "" && lab32.Text != "" && lab33.Text != ""))
+            {
+                DialogResult remiza =
+                MessageBox.Show("Remíza! Chcete to zkusit znovu?", "", MessageBoxButtons.YesNo);
+                if (remiza == DialogResult.Yes)
+                {
+                    lab11.Text = "";
+                    lab12.Text = "";
+                    lab13.Text = "";
+                    lab21.Text = "";
+                    lab22.Text = "";
+                    lab23.Text = "";
+                    lab31.Text = "";
+                    lab32.Text = "";
+                    lab33.Text = "";
+                    labhrac.Text = "1";
+                }
+                if (remiza == DialogResult.No)
+                {
+                    Application.Exit();
+                }
+            }
+            return hrac;
+        }
 		
 		
 		void Lab11Click(object sender, EventArgs e)
@@ -61,85 +130,7 @@ namespace Piskvorky
 				
 				}
 			}
-			if (((lab11.Text == "O")&&(lab12.Text == "O")&&(lab13.Text == "O"))||
-			    ((lab21.Text == "O")&&(lab22.Text == "O")&&(lab23.Text == "O"))||
-			    ((lab31.Text == "O")&&(lab32.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab21.Text == "O")&&(lab31.Text == "O"))||
-			    ((lab12.Text == "O")&&(lab22.Text == "O")&&(lab32.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab23.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab22.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab22.Text == "O")&&(lab31.Text == "O"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if (((lab11.Text == "X")&&(lab12.Text == "X")&&(lab13.Text == "X"))||
-			    ((lab21.Text == "X")&&(lab22.Text == "X")&&(lab23.Text == "X"))||
-			    ((lab31.Text == "X")&&(lab32.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab21.Text == "X")&&(lab31.Text == "X"))||
-			    ((lab12.Text == "X")&&(lab22.Text == "X")&&(lab32.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab23.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab22.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab22.Text == "X")&&(lab31.Text == "X"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if ((lab11.Text!=""&&
-				lab12.Text!=""&&
-							lab13.Text!=""&&
-							lab21.Text!=""&&
-							lab22.Text!=""&&
-							lab23.Text!=""&&
-							lab31.Text!=""&&
-							lab32.Text!=""&&
-							lab33.Text!="")) { 
-				DialogResult remiza =
-				MessageBox.Show("Remíza! Chcete to zkusit znovu?","",MessageBoxButtons.YesNo);
-				if (remiza == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (remiza == DialogResult.No) {
-					Application.Exit();
-				}
-			}
+            CheckWinner();
 		}
 		
 		void Lab12Click(object sender, EventArgs e)
@@ -170,86 +161,9 @@ namespace Piskvorky
 				
 				}
 			}
-			if (((lab11.Text == "O")&&(lab12.Text == "O")&&(lab13.Text == "O"))||
-			    ((lab21.Text == "O")&&(lab22.Text == "O")&&(lab23.Text == "O"))||
-			    ((lab31.Text == "O")&&(lab32.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab21.Text == "O")&&(lab31.Text == "O"))||
-			    ((lab12.Text == "O")&&(lab22.Text == "O")&&(lab32.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab23.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab22.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab22.Text == "O")&&(lab31.Text == "O"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if (((lab11.Text == "X")&&(lab12.Text == "X")&&(lab13.Text == "X"))||
-			    ((lab21.Text == "X")&&(lab22.Text == "X")&&(lab23.Text == "X"))||
-			    ((lab31.Text == "X")&&(lab32.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab21.Text == "X")&&(lab31.Text == "X"))||
-			    ((lab12.Text == "X")&&(lab22.Text == "X")&&(lab32.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab23.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab22.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab22.Text == "X")&&(lab31.Text == "X"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if ((lab11.Text!=""&&
-				lab12.Text!=""&&
-							lab13.Text!=""&&
-							lab21.Text!=""&&
-							lab22.Text!=""&&
-							lab23.Text!=""&&
-							lab31.Text!=""&&
-							lab32.Text!=""&&
-							lab33.Text!="")) { 
-				DialogResult remiza =
-				MessageBox.Show("Remíza! Chcete to zkusit znovu?","",MessageBoxButtons.YesNo);
-				if (remiza == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (remiza == DialogResult.No) {
-					Application.Exit();
-				}
-			}			
-		}
+            CheckWinner();
+
+        }
 		
 		void Lab13Click(object sender, EventArgs e)
 		{
@@ -278,87 +192,9 @@ namespace Piskvorky
 						labhrac.Text="1";
 				
 				}
-			}			
-			if (((lab11.Text == "O")&&(lab12.Text == "O")&&(lab13.Text == "O"))||
-			    ((lab21.Text == "O")&&(lab22.Text == "O")&&(lab23.Text == "O"))||
-			    ((lab31.Text == "O")&&(lab32.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab21.Text == "O")&&(lab31.Text == "O"))||
-			    ((lab12.Text == "O")&&(lab22.Text == "O")&&(lab32.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab23.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab22.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab22.Text == "O")&&(lab31.Text == "O"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if (((lab11.Text == "X")&&(lab12.Text == "X")&&(lab13.Text == "X"))||
-			    ((lab21.Text == "X")&&(lab22.Text == "X")&&(lab23.Text == "X"))||
-			    ((lab31.Text == "X")&&(lab32.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab21.Text == "X")&&(lab31.Text == "X"))||
-			    ((lab12.Text == "X")&&(lab22.Text == "X")&&(lab32.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab23.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab22.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab22.Text == "X")&&(lab31.Text == "X"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}	
-			if ((lab11.Text!=""&&
-				lab12.Text!=""&&
-							lab13.Text!=""&&
-							lab21.Text!=""&&
-							lab22.Text!=""&&
-							lab23.Text!=""&&
-							lab31.Text!=""&&
-							lab32.Text!=""&&
-							lab33.Text!="")) { 
-				DialogResult remiza =
-				MessageBox.Show("Remíza! Chcete to zkusit znovu?","",MessageBoxButtons.YesNo);
-				if (remiza == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (remiza == DialogResult.No) {
-					Application.Exit();
-				}
-			}			
-		}
+			}
+            CheckWinner();
+        }
 		
 		void Lab21Click(object sender, EventArgs e)
 		{
@@ -388,86 +224,8 @@ namespace Piskvorky
 				
 				}
 			}
-			if (((lab11.Text == "O")&&(lab12.Text == "O")&&(lab13.Text == "O"))||
-			    ((lab21.Text == "O")&&(lab22.Text == "O")&&(lab23.Text == "O"))||
-			    ((lab31.Text == "O")&&(lab32.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab21.Text == "O")&&(lab31.Text == "O"))||
-			    ((lab12.Text == "O")&&(lab22.Text == "O")&&(lab32.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab23.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab22.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab22.Text == "O")&&(lab31.Text == "O"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if (((lab11.Text == "X")&&(lab12.Text == "X")&&(lab13.Text == "X"))||
-			    ((lab21.Text == "X")&&(lab22.Text == "X")&&(lab23.Text == "X"))||
-			    ((lab31.Text == "X")&&(lab32.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab21.Text == "X")&&(lab31.Text == "X"))||
-			    ((lab12.Text == "X")&&(lab22.Text == "X")&&(lab32.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab23.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab22.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab22.Text == "X")&&(lab31.Text == "X"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-						if ((lab11.Text!=""&&
-				lab12.Text!=""&&
-							lab13.Text!=""&&
-							lab21.Text!=""&&
-							lab22.Text!=""&&
-							lab23.Text!=""&&
-							lab31.Text!=""&&
-							lab32.Text!=""&&
-							lab33.Text!="")) { 
-				DialogResult remiza =
-				MessageBox.Show("Remíza! Chcete to zkusit znovu?","",MessageBoxButtons.YesNo);
-				if (remiza == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (remiza == DialogResult.No) {
-					Application.Exit();
-				}
-			}
-		}
+            CheckWinner();
+        }
 				
 		void Lab22Click(object sender, EventArgs e)
 		{
@@ -497,86 +255,8 @@ namespace Piskvorky
 				
 				}
 			}
-			if (((lab11.Text == "O")&&(lab12.Text == "O")&&(lab13.Text == "O"))||
-			    ((lab21.Text == "O")&&(lab22.Text == "O")&&(lab23.Text == "O"))||
-			    ((lab31.Text == "O")&&(lab32.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab21.Text == "O")&&(lab31.Text == "O"))||
-			    ((lab12.Text == "O")&&(lab22.Text == "O")&&(lab32.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab23.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab22.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab22.Text == "O")&&(lab31.Text == "O"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if (((lab11.Text == "X")&&(lab12.Text == "X")&&(lab13.Text == "X"))||
-			    ((lab21.Text == "X")&&(lab22.Text == "X")&&(lab23.Text == "X"))||
-			    ((lab31.Text == "X")&&(lab32.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab21.Text == "X")&&(lab31.Text == "X"))||
-			    ((lab12.Text == "X")&&(lab22.Text == "X")&&(lab32.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab23.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab22.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab22.Text == "X")&&(lab31.Text == "X"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}	
-			if ((lab11.Text!=""&&
-				lab12.Text!=""&&
-							lab13.Text!=""&&
-							lab21.Text!=""&&
-							lab22.Text!=""&&
-							lab23.Text!=""&&
-							lab31.Text!=""&&
-							lab32.Text!=""&&
-							lab33.Text!="")) { 
-				DialogResult remiza =
-				MessageBox.Show("Remíza! Chcete to zkusit znovu?","",MessageBoxButtons.YesNo);
-				if (remiza == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (remiza == DialogResult.No) {
-					Application.Exit();
-				}
-			}			
-		}
+            CheckWinner();
+        }
 		
 		void Lab33Click(object sender, EventArgs e)
 		{
@@ -606,86 +286,8 @@ namespace Piskvorky
 				
 				}
 			}
-			if (((lab11.Text == "O")&&(lab12.Text == "O")&&(lab13.Text == "O"))||
-			    ((lab21.Text == "O")&&(lab22.Text == "O")&&(lab23.Text == "O"))||
-			    ((lab31.Text == "O")&&(lab32.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab21.Text == "O")&&(lab31.Text == "O"))||
-			    ((lab12.Text == "O")&&(lab22.Text == "O")&&(lab32.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab23.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab22.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab22.Text == "O")&&(lab31.Text == "O"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if (((lab11.Text == "X")&&(lab12.Text == "X")&&(lab13.Text == "X"))||
-			    ((lab21.Text == "X")&&(lab22.Text == "X")&&(lab23.Text == "X"))||
-			    ((lab31.Text == "X")&&(lab32.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab21.Text == "X")&&(lab31.Text == "X"))||
-			    ((lab12.Text == "X")&&(lab22.Text == "X")&&(lab32.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab23.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab22.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab22.Text == "X")&&(lab31.Text == "X"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-						if ((lab11.Text!=""&&
-				lab12.Text!=""&&
-							lab13.Text!=""&&
-							lab21.Text!=""&&
-							lab22.Text!=""&&
-							lab23.Text!=""&&
-							lab31.Text!=""&&
-							lab32.Text!=""&&
-							lab33.Text!="")) { 
-				DialogResult remiza =
-				MessageBox.Show("Remíza! Chcete to zkusit znovu?","",MessageBoxButtons.YesNo);
-				if (remiza == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (remiza == DialogResult.No) {
-					Application.Exit();
-				}
-			}
-		}
+            CheckWinner();
+        }
 		
 		void Lab23Click(object sender, EventArgs e)
 		{
@@ -715,86 +317,8 @@ namespace Piskvorky
 				
 				}
 			}
-			if (((lab11.Text == "O")&&(lab12.Text == "O")&&(lab13.Text == "O"))||
-			    ((lab21.Text == "O")&&(lab22.Text == "O")&&(lab23.Text == "O"))||
-			    ((lab31.Text == "O")&&(lab32.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab21.Text == "O")&&(lab31.Text == "O"))||
-			    ((lab12.Text == "O")&&(lab22.Text == "O")&&(lab32.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab23.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab22.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab22.Text == "O")&&(lab31.Text == "O"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if (((lab11.Text == "X")&&(lab12.Text == "X")&&(lab13.Text == "X"))||
-			    ((lab21.Text == "X")&&(lab22.Text == "X")&&(lab23.Text == "X"))||
-			    ((lab31.Text == "X")&&(lab32.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab21.Text == "X")&&(lab31.Text == "X"))||
-			    ((lab12.Text == "X")&&(lab22.Text == "X")&&(lab32.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab23.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab22.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab22.Text == "X")&&(lab31.Text == "X"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-						if ((lab11.Text!=""&&
-				lab12.Text!=""&&
-							lab13.Text!=""&&
-							lab21.Text!=""&&
-							lab22.Text!=""&&
-							lab23.Text!=""&&
-							lab31.Text!=""&&
-							lab32.Text!=""&&
-							lab33.Text!="")) { 
-				DialogResult remiza =
-				MessageBox.Show("Remíza! Chcete to zkusit znovu?","",MessageBoxButtons.YesNo);
-				if (remiza == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (remiza == DialogResult.No) {
-					Application.Exit();
-				}
-			}
-		}
+            CheckWinner();
+        }
 		
 		void Lab31Click(object sender, EventArgs e)
 		{
@@ -824,86 +348,8 @@ namespace Piskvorky
 				
 				}
 			}
-			if (((lab11.Text == "O")&&(lab12.Text == "O")&&(lab13.Text == "O"))||
-			    ((lab21.Text == "O")&&(lab22.Text == "O")&&(lab23.Text == "O"))||
-			    ((lab31.Text == "O")&&(lab32.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab21.Text == "O")&&(lab31.Text == "O"))||
-			    ((lab12.Text == "O")&&(lab22.Text == "O")&&(lab32.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab23.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab22.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab22.Text == "O")&&(lab31.Text == "O"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if (((lab11.Text == "X")&&(lab12.Text == "X")&&(lab13.Text == "X"))||
-			    ((lab21.Text == "X")&&(lab22.Text == "X")&&(lab23.Text == "X"))||
-			    ((lab31.Text == "X")&&(lab32.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab21.Text == "X")&&(lab31.Text == "X"))||
-			    ((lab12.Text == "X")&&(lab22.Text == "X")&&(lab32.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab23.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab22.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab22.Text == "X")&&(lab31.Text == "X"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-						if ((lab11.Text!=""&&
-				lab12.Text!=""&&
-							lab13.Text!=""&&
-							lab21.Text!=""&&
-							lab22.Text!=""&&
-							lab23.Text!=""&&
-							lab31.Text!=""&&
-							lab32.Text!=""&&
-							lab33.Text!="")) { 
-				DialogResult remiza =
-				MessageBox.Show("Remíza! Chcete to zkusit znovu?","",MessageBoxButtons.YesNo);
-				if (remiza == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (remiza == DialogResult.No) {
-					Application.Exit();
-				}
-			}
-		}
+            CheckWinner();
+        }
 		
 		void Lab32Click(object sender, EventArgs e)
 		{
@@ -933,86 +379,8 @@ namespace Piskvorky
 				
 				}
 			}
-			if (((lab11.Text == "O")&&(lab12.Text == "O")&&(lab13.Text == "O"))||
-			    ((lab21.Text == "O")&&(lab22.Text == "O")&&(lab23.Text == "O"))||
-			    ((lab31.Text == "O")&&(lab32.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab21.Text == "O")&&(lab31.Text == "O"))||
-			    ((lab12.Text == "O")&&(lab22.Text == "O")&&(lab32.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab23.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab11.Text == "O")&&(lab22.Text == "O")&&(lab33.Text == "O"))||
-			    ((lab13.Text == "O")&&(lab22.Text == "O")&&(lab31.Text == "O"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 1 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}
-			if (((lab11.Text == "X")&&(lab12.Text == "X")&&(lab13.Text == "X"))||
-			    ((lab21.Text == "X")&&(lab22.Text == "X")&&(lab23.Text == "X"))||
-			    ((lab31.Text == "X")&&(lab32.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab21.Text == "X")&&(lab31.Text == "X"))||
-			    ((lab12.Text == "X")&&(lab22.Text == "X")&&(lab32.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab23.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab11.Text == "X")&&(lab22.Text == "X")&&(lab33.Text == "X"))||
-			    ((lab13.Text == "X")&&(lab22.Text == "X")&&(lab31.Text == "X"))) {
-				DialogResult vyhra =	
-				MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?","",MessageBoxButtons.YesNo);
-				if (vyhra == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (vyhra == DialogResult.No) {
-					Application.Exit();
-				}
-					}	
-			if ((lab11.Text!=""&&
-				lab12.Text!=""&&
-							lab13.Text!=""&&
-							lab21.Text!=""&&
-							lab22.Text!=""&&
-							lab23.Text!=""&&
-							lab31.Text!=""&&
-							lab32.Text!=""&&
-							lab33.Text!="")) { 
-				DialogResult remiza =
-				MessageBox.Show("Remíza! Chcete to zkusit znovu?","",MessageBoxButtons.YesNo);
-				if (remiza == DialogResult.Yes) {
-							lab11.Text="";
-							lab12.Text="";
-							lab13.Text="";
-							lab21.Text="";
-							lab22.Text="";
-							lab23.Text="";
-							lab31.Text="";
-							lab32.Text="";
-							lab33.Text="";
-							labhrac.Text="1";
-				}
-				if (remiza == DialogResult.No) {
-					Application.Exit();
-				}
-			}			
-		}
+            CheckWinner();
+        }
 		
 		void Button1Click(object sender, EventArgs e)
 		{
