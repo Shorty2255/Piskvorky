@@ -33,10 +33,7 @@ namespace Piskvorky
                     lab31.Text = ""; lab32.Text = ""; lab33.Text = "";
                     labhrac.Text = "1";
                 }
-                if (vyhra == DialogResult.No)
-                {
-                    Application.Exit();
-                }
+                if (vyhra == DialogResult.No) Application.Exit();
             }
             if (((lab11.Text == "X") && (lab12.Text == "X") && (lab13.Text == "X")) ||
                 ((lab21.Text == "X") && (lab22.Text == "X") && (lab23.Text == "X")) ||
@@ -52,21 +49,12 @@ namespace Piskvorky
                 MessageBox.Show("Hráč 2 vyhrál. Chcete hrát znovu?", "", MessageBoxButtons.YesNo);
                 if (vyhra == DialogResult.Yes)
                 {
-                    lab11.Text = "";
-                    lab12.Text = "";
-                    lab13.Text = "";
-                    lab21.Text = "";
-                    lab22.Text = "";
-                    lab23.Text = "";
-                    lab31.Text = "";
-                    lab32.Text = "";
-                    lab33.Text = "";
+                    lab11.Text = ""; lab12.Text = ""; lab13.Text = "";
+                    lab21.Text = ""; lab22.Text = ""; lab23.Text = "";
+                    lab31.Text = ""; lab32.Text = ""; lab33.Text = "";
                     labhrac.Text = "1";
                 }
-                if (vyhra == DialogResult.No)
-                {
-                    Application.Exit();
-                }
+                if (vyhra == DialogResult.No) Application.Exit();
             }
             if ((lab11.Text != "" && lab12.Text != "" && lab13.Text != "" &&
                  lab21.Text != "" && lab22.Text != "" && lab23.Text != "" &&
@@ -76,21 +64,12 @@ namespace Piskvorky
                 MessageBox.Show("Remíza! Chcete to zkusit znovu?", "", MessageBoxButtons.YesNo);
                 if (remiza == DialogResult.Yes)
                 {
-                    lab11.Text = "";
-                    lab12.Text = "";
-                    lab13.Text = "";
-                    lab21.Text = "";
-                    lab22.Text = "";
-                    lab23.Text = "";
-                    lab31.Text = "";
-                    lab32.Text = "";
-                    lab33.Text = "";
+                    lab11.Text = ""; lab12.Text = ""; lab13.Text = "";
+                    lab21.Text = ""; lab22.Text = ""; lab23.Text = "";
+                    lab31.Text = ""; lab32.Text = ""; lab33.Text = "";
                     labhrac.Text = "1";
                 }
-                if (remiza == DialogResult.No)
-                {
-                    Application.Exit();
-                }
+                if (remiza == DialogResult.No) Application.Exit();
             }
             return hrac;
         }
@@ -98,28 +77,14 @@ namespace Piskvorky
 		
 		void Lab11Click(object sender, EventArgs e)
 		{
-			if (lab11.Text !="") {
-				labpodvod.Text="Hráč "+labhrac.Text+" se pokusil o podvod.";
-				switch (labhrac.Text) {
-					case "1":
-						labhrac.Text="2";
-						break;
-					case "2":
-						labhrac.Text="1";
-						break;
-					default:
-						break;
-				}
-			}else{
+			if (lab11.Text =="") {
 				if (labhrac.Text == "1") {
 						lab11.Text="O";
 						labhrac.Text="2";
-				
 				} 
 				else  {
 						lab11.Text="X";
 						labhrac.Text="1";
-				
 				}
 			}
             CheckWinner();
@@ -127,19 +92,7 @@ namespace Piskvorky
 		
 		void Lab12Click(object sender, EventArgs e)
 		{
-			if (lab12.Text !="") {
-				labpodvod.Text="Hráč "+labhrac.Text+" se pokusil o podvod.";
-				switch (labhrac.Text) {
-					case "1":
-						labhrac.Text="2";
-						break;
-					case "2":
-						labhrac.Text="1";
-						break;
-					default:
-						break;
-				}
-			}else{
+			if (lab12.Text =="") {
 				if (labhrac.Text == "1") {
 						lab12.Text="O";
 						labhrac.Text="2";
@@ -153,19 +106,7 @@ namespace Piskvorky
 		
 		void Lab13Click(object sender, EventArgs e)
 		{
-			if (lab13.Text !="") {
-				labpodvod.Text="Hráč "+labhrac.Text+" se pokusil o podvod.";
-				switch (labhrac.Text) {
-					case "1":
-						labhrac.Text="2";
-						break;
-					case "2":
-						labhrac.Text="1";
-						break;
-					default:
-						break;
-				}
-			}else{
+			if (lab13.Text =="") {
 				if (labhrac.Text == "1") {
 						lab13.Text="O";
 						labhrac.Text="2";
@@ -173,7 +114,6 @@ namespace Piskvorky
 				}else{
 						lab13.Text="X";
 						labhrac.Text="1";
-				
 				}
 			}
             CheckWinner();
@@ -181,19 +121,7 @@ namespace Piskvorky
 		
 		void Lab21Click(object sender, EventArgs e)
 		{
-			if (lab21.Text !="") {
-				labpodvod.Text="Hráč "+labhrac.Text+" se pokusil o podvod.";
-				switch (labhrac.Text) {
-					case "1":
-						labhrac.Text="2";
-						break;
-					case "2":
-						labhrac.Text="1";
-						break;
-					default:
-						break;
-				}
-			}else{
+			if (lab21.Text =="") {
 				if (labhrac.Text == "1") {
 						lab21.Text="O";
 						labhrac.Text="2";
@@ -201,7 +129,6 @@ namespace Piskvorky
 				}else{
 						lab21.Text="X";
 						labhrac.Text="1";
-				
 				}
 			}
             CheckWinner();
@@ -209,19 +136,7 @@ namespace Piskvorky
 				
 		void Lab22Click(object sender, EventArgs e)
 		{
-			if (lab22.Text !="") {
-				labpodvod.Text="Hráč "+labhrac.Text+" se pokusil o podvod.";
-				switch (labhrac.Text) {
-					case "1":
-						labhrac.Text="2";
-						break;
-					case "2":
-						labhrac.Text="1";
-						break;
-					default:
-						break;
-				}
-			}else{
+			if (lab22.Text =="") {
 				if (labhrac.Text == "1") {
 						lab22.Text="O";
 						labhrac.Text="2";
@@ -229,7 +144,6 @@ namespace Piskvorky
 				}else{
 						lab22.Text="X";
 						labhrac.Text="1";
-				
 				}
 			}
             CheckWinner();
@@ -237,19 +151,7 @@ namespace Piskvorky
 		
 		void Lab33Click(object sender, EventArgs e)
 		{
-			if (lab33.Text !="") {
-				labpodvod.Text="Hráč "+labhrac.Text+" se pokusil o podvod.";
-				switch (labhrac.Text) {
-					case "1":
-						labhrac.Text="2";
-						break;
-					case "2":
-						labhrac.Text="1";
-						break;
-					default:
-						break;
-				}
-			}else{
+			if (lab33.Text =="") {
 				if (labhrac.Text == "1") {
 						lab33.Text="O";
 						labhrac.Text="2";
@@ -257,7 +159,6 @@ namespace Piskvorky
 				}else{
 						lab33.Text="X";
 						labhrac.Text="1";
-				
 				}
 			}
             CheckWinner();
@@ -265,19 +166,7 @@ namespace Piskvorky
 		
 		void Lab23Click(object sender, EventArgs e)
 		{
-			if (lab23.Text !="") {
-				labpodvod.Text="Hráč "+labhrac.Text+" se pokusil o podvod.";
-				switch (labhrac.Text) {
-					case "1":
-						labhrac.Text="2";
-						break;
-					case "2":
-						labhrac.Text="1";
-						break;
-					default:
-						break;
-				}
-			}else{
+			if (lab23.Text =="") {
 				if (labhrac.Text == "1") {
 						lab23.Text="O";
 						labhrac.Text="2";
@@ -285,7 +174,6 @@ namespace Piskvorky
 				}else{
 						lab23.Text="X";
 						labhrac.Text="1";
-				
 				}
 			}
             CheckWinner();
@@ -293,19 +181,7 @@ namespace Piskvorky
 		
 		void Lab31Click(object sender, EventArgs e)
 		{
-			if (lab31.Text !="") {
-				labpodvod.Text="Hráč "+labhrac.Text+" se pokusil o podvod.";
-				switch (labhrac.Text) {
-					case "1":
-						labhrac.Text="2";
-						break;
-					case "2":
-						labhrac.Text="1";
-						break;
-					default:
-						break;
-				}
-			}else{
+			if (lab31.Text =="") {
 				if (labhrac.Text == "1") {
 						lab31.Text="O";
 						labhrac.Text="2";
@@ -313,7 +189,6 @@ namespace Piskvorky
 				}else{
 						lab31.Text="X";
 						labhrac.Text="1";
-				
 				}
 			}
             CheckWinner();
@@ -321,19 +196,7 @@ namespace Piskvorky
 		
 		void Lab32Click(object sender, EventArgs e)
 		{
-			if (lab32.Text !="") {
-				labpodvod.Text="Hráč "+labhrac.Text+" se pokusil o podvod.";
-				switch (labhrac.Text) {
-					case "1":
-						labhrac.Text="2";
-						break;
-					case "2":
-						labhrac.Text="1";
-						break;
-					default:
-						break;
-				}
-			}else{
+			if (lab32.Text =="") {
 				if (labhrac.Text == "1") {
 						lab32.Text="O";
 						labhrac.Text="2";
@@ -341,7 +204,6 @@ namespace Piskvorky
 				}else{
 						lab32.Text="X";
 						labhrac.Text="1";
-				
 				}
 			}
             CheckWinner();
